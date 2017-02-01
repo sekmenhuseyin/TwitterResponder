@@ -1,7 +1,37 @@
-﻿@{
+﻿@model TwitterResponder.Models.mdlSearch
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h3>Arama</h3>
+    <div class="kutu">
+        @Html.LabelFor(m => m.searchText, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(m => m.searchText)
+    </div>
+    <div class="kutu">
+        @Html.LabelFor(m => m.searchStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(m => m.searchStartDate)
+    </div>
+    <div class="kutu">
+        @Html.LabelFor(m => m.searchEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(m => m.searchEndDate)
+    </div>
+    <div class="kutu">
+        @Html.LabelFor(m => m.searchLimit, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(m => m.searchLimit)
+    </div>
+</div>
+<div>
+    <h3>Cevap</h3>
+    <div class="kutu">
+        @Html.LabelFor(m => m.searchAnswer, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.EditorFor(m => m.searchAnswer)
+    </div>
+</div>
+@{
     foreach (var item in ViewBag.tweets)
     {
         @item<br />
     }
-    
+
 }

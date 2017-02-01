@@ -14,6 +14,7 @@ namespace TwitterResponder
             //styles
             bundles.Add(new StyleBundle("~/Content/Styles/css").Include("~/Content/Styles/bootstrap.css", "~/Content/Styles/site.css"));
             //optimize
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

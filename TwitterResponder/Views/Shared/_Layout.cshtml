@@ -24,14 +24,10 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Tweeter</p>
-        </footer>
-    </div>
-
+    <div class="container body-content">@RenderBody()</div>
+    <footer>
+        <hr /><p>&copy; @DateTime.Now.Year - Tweeter</p>
+    </footer>
     @Scripts.Render("~/Content/Scripts/jquery")
     @Scripts.Render("~/Content/Scripts/bootstrap")
     @RenderSection("scripts", required: false)

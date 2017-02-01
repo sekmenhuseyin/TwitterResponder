@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Tweetinvi;
+using TwitterResponder.Models;
 
 namespace TwitterResponder.Controllers
 {
     public class HomeController : Controller
     {
+        //anasayfa
         public ActionResult Index()
         {
             var searchParameter = Search.CreateTweetSearchParameter("akp");
@@ -19,6 +21,15 @@ namespace TwitterResponder.Controllers
             
             return View();
         }
-
+        //get search results
+        public JsonResult GetSearchResults(mdlSearch tmp)
+        {
+            var searchParameter = Search.CreateTweetSearchParameter(tmp.searchText);
+            searchParameter.MaximumNumberOfResults = tmp.searchLimit;
+            searchParameter.Since= tmp.searchStartDate;
+            searchParameter.Until = tmp.searchEndDate;
+            ViewBag.tweets = Search.SearchTweets(searchParameter); 
+            return Json("");
+        }
     }
 }
